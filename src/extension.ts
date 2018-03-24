@@ -114,6 +114,7 @@ class ESP32Micropython {
     }
 
     pushActiveFile(hasRequestSerialMonitor: boolean) {
+        this._terminal.dispose();
         this._status.text   = "[ESP32 Micropython]: Pushing single file...";
         this._outputChannel.clear();
         this._outputChannel.appendLine("*********************************************");
@@ -179,6 +180,7 @@ class ESP32Micropython {
     }
 
     pushProject() {
+        this._terminal.dispose();
         this._status.text   = "ESP32: Pushing all files in project...";
         this._outputChannel.clear();
         this._outputChannel.appendLine("*********************************************");
@@ -289,6 +291,7 @@ class ESP32Micropython {
 
     formatAllData() {
         return new Promise((resolve, reject) => {
+            this._terminal.dispose();
             this._outputChannel.appendLine("[ESP32 Micropython]: Checking settings file...");
             this._outputChannel.show();
             vscode.workspace.openTextDocument(vscode.Uri.file(vscode.workspace.rootPath + '/micropy-config.json')).then(async (document: vscode.TextDocument) => {
@@ -323,6 +326,10 @@ class ESP32Micropython {
         });
     }
 
+    stopConsole() {
+        this._terminal.dispose();
+    }
+
     newExecFromPromise(command: string) {
         command = ("cd " + vscode.workspace.rootPath + " && " + command);
         return new Promise((resolve, reject) => {
@@ -354,6 +361,9 @@ export function activate(context: vscode.ExtensionContext) {
     });
     vscode.commands.registerCommand("extension.showConsole", () => {
         app.displaySerialTerminal();
+    });
+    vscode.commands.registerCommand("extension.stopConsole", () => {
+        app.stopConsole();
     });
     app.initial();
 }
