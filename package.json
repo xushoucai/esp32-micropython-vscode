@@ -3,7 +3,12 @@
     "displayName": "ESP32 Micropython",
     "description": "ESP32 Python language development with micropython firmware",
     "version": "0.0.1",
+    "icon": "images/microchip.png",
     "publisher": "dphans",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dphans/esp32-micropython-vscode.git"
+    },
     "engines": {
         "vscode": "^1.21.0"
     },
