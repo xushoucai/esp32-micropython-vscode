@@ -2,7 +2,7 @@
     "name": "esp32-micropython",
     "displayName": "ESP32 Micropython",
     "description": "ESP32 Python language development with micropython firmware",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "icon": "images/microchip.png",
     "publisher": "dphans",
     "repository": {
