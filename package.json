@@ -1,0 +1,64 @@
+{
+    "name": "esp32-micropython",
+    "displayName": "ESP32 Micropython",
+    "description": "ESP32 Python language development with micropython firmware",
+    "version": "0.0.1",
+    "publisher": "dphans",
+    "engines": {
+        "vscode": "^1.21.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.newProject",
+                "title": "ESP32: Create new Project..."
+            },
+            {
+                "command": "extension.push",
+                "title": "ESP32: Push"
+            },
+            {
+                "command": "extension.pushWithSerialMonitor",
+                "title": "ESP32: Push & Debug"
+            },
+            {
+                "command": "extension.pushAll",
+                "title": "ESP32: Push whole project"
+            },
+            {
+                "command": "extension.formatAll",
+                "title": "ESP32: Format all data"
+            },
+            {
+                "command": "extension.showConsole",
+                "title": "ESP32: Serial monitor"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^7.0.43",
+        "tslint": "^5.8.0",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6"
+    },
+    "dependencies": {
+        "child_process": "^1.0.2",
+        "util": "^0.10.3",
+        "walk": "^2.3.9"
+    }
+}
